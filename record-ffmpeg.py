@@ -6,10 +6,10 @@ import datetime
 import subprocess
 
 # RTSP-URL deiner Reolink-Kamera
-RTSP_URL = "rtsp://user-env:pw-env@10.1.2.70:554/h264Preview_01_main"
+RTSP_URL = os.getenv("REOLINK_STREAMING_URl")
 
 # Basisverzeichnis für Aufnahmen
-BASE_DIR = "/Recordings/ffmpeg"
+BASE_DIR = "/Recordings/front-door"
 
 # Dauer eines Blocks in Sekunden (30 Minuten)
 BLOCK_DURATION = 30 * 60
@@ -36,7 +36,7 @@ def record_block():
         output_file
     ]
     print(" ".join(cmd))
-    ##subprocess.run(cmd)
+    subprocess.run(cmd)
 
 if __name__ == "__main__":
     while True:

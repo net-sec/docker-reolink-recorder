@@ -3,4 +3,4 @@
 echo "$WEBDAV_URL $WEBDAV_USER $WEBDAV_PASSWORD" >> /etc/davfs2/secrets
 mount -t davfs $WEBDAV_URL /Recordings/
 
-sleep 9999
+python /app/record-ffmpeg.py
