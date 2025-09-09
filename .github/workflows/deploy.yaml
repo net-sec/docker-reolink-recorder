@@ -14,14 +14,14 @@ jobs:
       - name: Buildah Build
         uses: redhat-actions/buildah-build@v2
         with:
-          image: ${{ vars.QUAY_REPO }}/ffmpeg
+          image: ${{ vars.QUAY_REPO }}/reolink-recorder
           tags: latest
           containerfiles: |
             ./Dockerfile
       - name: Push To quay.io
         uses: redhat-actions/push-to-registry@v2
         with:
-          image: ${{ vars.QUAY_REPO }}/ffmpeg
+          image: ${{ vars.QUAY_REPO }}/reolink-recorder
           tags: latest
           registry: ${{ vars.QUAY_REGISTRY }}
           username: ${{ vars.QUAY_REGISTRY_USER }}
