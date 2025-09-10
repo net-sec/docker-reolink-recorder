@@ -9,7 +9,7 @@ import subprocess
 RTSP_URL = os.getenv("REOLINK_STREAMING_URl")
 
 # Basisverzeichnis für Aufnahmen
-BASE_DIR = "/Recordings/front-door"
+BASE_DIR = os.getenv("TARGET_DIRECTORY")
 
 def get_next_half_hour():
     now = datetime.datetime.now()
