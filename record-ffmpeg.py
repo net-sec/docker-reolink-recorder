@@ -33,7 +33,7 @@ def record_block():
     cmd = [
         "ffmpeg",
         "-rtsp_transport", "tcp",
-        "-stimeout", "10000000",
+        "-rw_timeout", "10000000",
         "-fflags", "+genpts",
         "-flags", "+low_delay",
         "-analyzeduration", "1000000",
