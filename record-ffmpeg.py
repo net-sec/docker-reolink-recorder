@@ -33,16 +33,15 @@ def record_block():
     cmd = [
         "ffmpeg",
         "-rtsp_transport", "tcp",
+        "-stimeout", "10000000",
         "-fflags", "+genpts",
         "-flags", "+low_delay",
         "-analyzeduration", "1000000",
         "-probesize", "1000000",
         "-i", RTSP_URL,
         "-t", str(duration),
-        "-c:v", "libx264",  # oder libx265 für bessere Kompression
-        "-preset", "veryfast",  # oder "ultrafast" für weniger CPU-Last
-        "-crf", "23",  # Qualität (niedriger = besser)
-        "-c:a", "aac",
+        "-c", "copy",
+        "-f", "mp4",
         output_file
     ]
     print(" ".join(cmd))
