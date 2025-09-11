@@ -45,7 +45,7 @@ def record_block():
         output_file
     ]
     print(" ".join(cmd))
-    subprocess.run(cmd)
+    subprocess.run(cmd, timeout=duration + 60)
 
 if __name__ == "__main__":
     while True:
