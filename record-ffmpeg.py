@@ -37,19 +37,16 @@ def record_block():
         "-flags", "+low_delay",
         "-analyzeduration", "1000000",
         "-probesize", "1000000",
-        "-err_detect", "ignore_err",
         "-i", RTSP_URL,
         "-t", str(duration),
         "-c:v", "libx264",
-        "-preset", "ultrafast",
+        "-preset", "veryfast",
         "-crf", "23",
-        "-c:a", "copy",
-        "-f", "mp4",
+        "-c:a", "aac",
         output_file
     ]
-
     print(" ".join(cmd))
-    subprocess.run(cmd, timeout=duration + 60)
+    subprocess.run(cmd)
 
 if __name__ == "__main__":
     while True:
